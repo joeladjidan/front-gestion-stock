@@ -3,7 +3,7 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { UtilisateursService } from 'src/gs-api/src/services';
+import { UserService } from 'src/app/services/user/user.service';
 
 import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
 
@@ -17,11 +17,17 @@ export class HeaderComponent implements OnInit {
   connectedUser: UtilisateurDto = {};
 
   constructor(
-    private userService: UtilisateursService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.connectedUser; //= this.userService.getConnectedUser();
+    this.connectedUser = this.userService.getConnectedUser();
+   // this.connectedUser;
   }
 
 }
+
+export function getConnectedUser(): UtilisateurDto {
+  throw new Error('Function not implemented.');
+}
+

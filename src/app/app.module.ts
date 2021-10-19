@@ -3,7 +3,10 @@ import {
   HttpClientModule,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +23,9 @@ import {
 import { HeaderComponent } from './composants/header/header.component';
 import { LoaderComponent } from './composants/loader/loader.component';
 import { MenuComponent } from './composants/menu/menu/menu.component';
+import {
+  NouveauCltFrsComponent,
+} from './composants/nouveau-clt-frs/nouveau-clt-frs.component';
 import {
   PaginationComponent,
 } from './composants/pagination/pagination.component';
@@ -54,7 +60,6 @@ import {
 import {
   HttpInterceptorService,
 } from './services/interceptor/http-interceptor.service';
-import { NouveauCltFrsComponent } from './composants/nouveau-clt-frs/nouveau-clt-frs.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +87,8 @@ imports: [
   BrowserModule,
   AppRoutingModule,
   HttpClientModule,
-  FormsModule
+  FormsModule,
+  ReactiveFormsModule
 ],
 providers: [{
   provide: HTTP_INTERCEPTORS,
