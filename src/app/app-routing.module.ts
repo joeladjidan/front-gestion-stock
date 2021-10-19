@@ -29,6 +29,9 @@ import { PageLoginComponent } from './pages/page-login/page-login.component';
 import {
   PageStatistiquesComponent,
 } from './pages/page-statistiques/page-statistiques.component';
+import {
+  ApplicationGuardService,
+} from './services/guard/application-guard.service';
 
 const routes: Routes = [
   {
@@ -41,6 +44,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [ApplicationGuardService] ,
     component: PageDashboardComponent,
     children: [
       {

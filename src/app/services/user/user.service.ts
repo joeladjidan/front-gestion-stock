@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
-import {AuthenticationService} from '../../../gs-api/src/services/authentication.service';
-import {AuthenticationRequest} from '../../../gs-api/src/models/authentication-request';
-import {Observable, of} from 'rxjs';
-import {AuthenticationResponse} from '../../../gs-api/src/models/authentication-response';
-import {Router} from '@angular/router';
-import {UtilisateursService} from '../../../gs-api/src/services/utilisateurs.service';
-import {UtilisateurDto} from '../../../gs-api/src/models/utilisateur-dto';
-import {retry} from 'rxjs/operators';
-import {ChangerMotDePasseUtilisateurDto} from '../../../gs-api/src/models/changer-mot-de-passe-utilisateur-dto';
+import { Router } from '@angular/router';
 
+import {
+  Observable,
+  of,
+} from 'rxjs';
+
+import {
+  AuthenticationRequest,
+} from '../../../gs-api/src/models/authentication-request';
+import {
+  AuthenticationResponse,
+} from '../../../gs-api/src/models/authentication-response';
+import {
+  ChangerMotDePasseUtilisateurDto,
+} from '../../../gs-api/src/models/changer-mot-de-passe-utilisateur-dto';
+import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
+import {
+  AuthenticationService,
+} from '../../../gs-api/src/services/authentication.service';
+import {
+  UtilisateursService,
+} from '../../../gs-api/src/services/utilisateurs.service';
 
 @Injectable({
   providedIn: 'root'

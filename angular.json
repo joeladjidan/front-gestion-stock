@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gestion-stock": {
+    "front-gestion-stock": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gestion-stock:build:production"
+              "browserTarget": "front-gestion-stock:build:production"
             },
             "development": {
-              "browserTarget": "gestion-stock:build:development"
+              "browserTarget": "front-gestion-stock:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gestion-stock:build"
+            "browserTarget": "front-gestion-stock:build"
           }
         },
         "test": {
@@ -115,5 +115,5 @@
       }
     }
   },
-  "defaultProject": "gestion-stock"
+  "defaultProject": "front-gestion-stock"
 }
