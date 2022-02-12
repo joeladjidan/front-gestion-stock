@@ -1,11 +1,9 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { UserService } from 'src/app/services/user/user.service';
-
-import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
+import {Observable,} from 'rxjs';
+import {UserService} from 'src/app/services/user/user.service';
+import {UtilisateurDto} from '../../../gs-api/src/models/utilisateur-dto';
 
 @Component({
   selector: 'app-header',
@@ -14,20 +12,24 @@ import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
 })
 export class HeaderComponent implements OnInit {
 
+  isLoggedIn$: Observable<boolean> | undefined;       
+
   connectedUser: UtilisateurDto = {};
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.connectedUser = this.userService.getConnectedUser();
-   // this.connectedUser;
+    this.isLoggedIn$ = this.userService.isLoggedIn;
   }
 
-}
+  onLogout(){
+    this.userService.logout();
+    localStorage.removeItem('accessToken');
+  }
 
-export function getConnectedUser(): UtilisateurDto {
-  throw new Error('Function not implemented.');
 }
 

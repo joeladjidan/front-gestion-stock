@@ -12,9 +12,11 @@
         <div class="col-md-9 text-right">
           <span>Bonjour {{connectedUser.nom}}&nbsp;</span>
         </div>
-  
         <div class="col-md-3">
           <a href="javascript:void(0);" [routerLink]="['/profil']">
+            <img src="favicon.ico" class="rounded-circle" />
+          </a>
+          <a (click)="onLogout()" *ngIf="isLoggedIn$ | async">
             <img src="favicon.ico" class="rounded-circle" />
           </a>
         </div>

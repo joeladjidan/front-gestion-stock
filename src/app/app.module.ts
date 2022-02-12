@@ -1,65 +1,32 @@
-import {
-  HTTP_INTERCEPTORS,
-  HttpClientModule,
-} from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import {
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS, HttpClientModule,} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule,} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {
-  BouttonActionComponent,
-} from './composants/boutton-action/boutton-action.component';
-import {
-  DetailArticleComponent,
-} from './composants/detail-article/detail-article.component';
-import {
-  DetailCltFrsComponent,
-} from './composants/detail-clt-frs/detail-clt-frs.component';
-import { HeaderComponent } from './composants/header/header.component';
-import { LoaderComponent } from './composants/loader/loader.component';
-import { MenuComponent } from './composants/menu/menu/menu.component';
-import {
-  NouveauCltFrsComponent,
-} from './composants/nouveau-clt-frs/nouveau-clt-frs.component';
-import {
-  PaginationComponent,
-} from './composants/pagination/pagination.component';
-import {
-  NouvelArticleComponent,
-} from './pages/articles/nouvel-article/nouvel-article.component';
-import {
-  PageArticleComponent,
-} from './pages/articles/page-article/page-article.component';
-import {
-  PageClientComponent,
-} from './pages/client/page-client/page-client.component';
-import {
-  DetailMvtStkArticleComponent,
-} from './pages/mvtstk/detail-mvt-stk-article/detail-mvt-stk-article.component';
-import {
-  DetailMvtStkComponent,
-} from './pages/mvtstk/detail-mvt-stk/detail-mvt-stk.component';
-import {
-  PageMvtstkComponent,
-} from './pages/mvtstk/page-mvtstk/page-mvtstk.component';
-import {
-  PageDashboardComponent,
-} from './pages/page-dashboard/page-dashboard.component';
-import {
-  PageInscriptionComponent,
-} from './pages/page-inscription/page-inscription.component';
-import { PageLoginComponent } from './pages/page-login/page-login.component';
-import {
-  PageStatistiquesComponent,
-} from './pages/page-statistiques/page-statistiques.component';
-import {
-  HttpInterceptorService,
-} from './services/interceptor/http-interceptor.service';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BouttonActionComponent,} from './composants/boutton-action/boutton-action.component';
+import {DetailArticleComponent,} from './composants/detail-article/detail-article.component';
+import {DetailCltFrsComponent,} from './composants/detail-clt-frs/detail-clt-frs.component';
+import {HeaderComponent} from './composants/header/header.component';
+import {LoaderComponent} from './composants/loader/loader.component';
+import {MenuComponent} from './composants/menu/menu/menu.component';
+import {NouveauCltFrsComponent,} from './composants/nouveau-clt-frs/nouveau-clt-frs.component';
+import {PaginationComponent,} from './composants/pagination/pagination.component';
+import {NouvelArticleComponent,} from './pages/articles/nouvel-article/nouvel-article.component';
+import {PageArticleComponent,} from './pages/articles/page-article/page-article.component';
+import {PageClientComponent,} from './pages/client/page-client/page-client.component';
+import {DetailMvtStkArticleComponent,} from './pages/mvtstk/detail-mvt-stk-article/detail-mvt-stk-article.component';
+import {DetailMvtStkComponent,} from './pages/mvtstk/detail-mvt-stk/detail-mvt-stk.component';
+import {PageMvtstkComponent,} from './pages/mvtstk/page-mvtstk/page-mvtstk.component';
+import {PageDashboardComponent,} from './pages/page-dashboard/page-dashboard.component';
+import {PageInscriptionComponent,} from './pages/page-inscription/page-inscription.component';
+import {PageLoginComponent} from './pages/page-login/page-login.component';
+import {PageStatistiquesComponent,} from './pages/page-statistiques/page-statistiques.component';
+import {HttpInterceptorService,} from './services/interceptor/http-interceptor.service';
+import {PageUtilisateursComponent} from './pages/page-utilisateurs/page-utilisateurs.component';
+import {PageCategoriesComponent} from './pages/page-categories/page-categories.component';
+import {PageFournisseursComponent} from './pages/page-fournisseurs/page-fournisseurs.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +48,10 @@ import {
     DetailMvtStkComponent,
     DetailCltFrsComponent,
     PageClientComponent,
-    NouveauCltFrsComponent
+    NouveauCltFrsComponent,
+    PageUtilisateursComponent,
+    PageCategoriesComponent,
+    PageFournisseursComponent
   ],
 imports: [
   BrowserModule,
