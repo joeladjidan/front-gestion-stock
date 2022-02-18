@@ -1,14 +1,15 @@
 /* tslint:disable */
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { BaseService as __BaseService } from '../base-service';
-import { ApiConfiguration as __Configuration } from '../api-configuration';
-import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-response';
-import { Observable as __Observable } from 'rxjs';
-import { map as __map, filter as __filter } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
+import {BaseService as __BaseService} from '../base-service';
+import {ApiConfiguration as __Configuration} from '../api-configuration';
+import {StrictHttpResponse as __StrictHttpResponse} from '../strict-http-response';
+import {Observable as __Observable} from 'rxjs';
+import {filter as __filter, map as __map} from 'rxjs/operators';
 
-import { UtilisateurDto } from '../models/utilisateur-dto';
-import { ChangerMotDePasseUtilisateurDto } from '../models/changer-mot-de-passe-utilisateur-dto';
+import {UtilisateurDto} from '../models/utilisateur-dto';
+import {ChangerMotDePasseUtilisateurDto} from '../models/changer-mot-de-passe-utilisateur-dto';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -33,6 +34,7 @@ class UtilisateursService extends __BaseService {
   findAllResponse(): __Observable<__StrictHttpResponse<Array<UtilisateurDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
+    __headers.set('Access-Control-Allow-Origin', '*');
     let __body: any = null;
     let req = new HttpRequest<any>(
       'GET',

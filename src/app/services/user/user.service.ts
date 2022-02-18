@@ -1,32 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 
-import {
-  Observable,
-  of,
-} from 'rxjs';
+import {BehaviorSubject, Observable, of,} from 'rxjs';
 
-import {
-  AuthenticationRequest,
-} from '../../../gs-api/src/models/authentication-request';
-import {
-  AuthenticationResponse,
-} from '../../../gs-api/src/models/authentication-response';
-import {
-  ChangerMotDePasseUtilisateurDto,
-} from '../../../gs-api/src/models/changer-mot-de-passe-utilisateur-dto';
-import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
-import {
-  AuthenticationService,
-} from '../../../gs-api/src/services/authentication.service';
-import {
-  UtilisateursService,
-} from '../../../gs-api/src/services/utilisateurs.service';
+import {AuthenticationRequest,} from '../../../gs-api/src/models/authentication-request';
+import {AuthenticationResponse,} from '../../../gs-api/src/models/authentication-response';
+import {ChangerMotDePasseUtilisateurDto,} from '../../../gs-api/src/models/changer-mot-de-passe-utilisateur-dto';
+import {UtilisateurDto} from '../../../gs-api/src/models/utilisateur-dto';
+import {AuthenticationService,} from '../../../gs-api/src/services/authentication.service';
+import {UtilisateursService,} from '../../../gs-api/src/services/utilisateurs.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  public loggedIn = new BehaviorSubject<boolean>(false);
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -65,13 +58,20 @@ export class UserService {
     return this.utilisateurService.changerMotDePasse(changerMotDePasseDto);
   }
 
-  // TODO
   isUserLoggedAndAccessTokenValid(): boolean {
+   // localStorage.removeItem('accessToken');
     if (localStorage.getItem('accessToken')) {
-      // TODO il faut verifier si le access token est valid
-      return true;
+        return true;
     }
     this.router.navigate(['login']);
     return false;
   }
+
+  logout() {                          
+    this.loggedIn.next(false);
+    localStorage.removeItem('accessToken');
+    window.sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

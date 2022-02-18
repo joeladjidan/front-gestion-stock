@@ -1,11 +1,8 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
 
-import { UserService } from 'src/app/services/user/user.service';
-
-import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
+import {Observable,} from 'rxjs';
+import {UserService} from 'src/app/services/user/user.service';
+import {UtilisateurDto} from '../../../gs-api/src/models/utilisateur-dto';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +10,8 @@ import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  isLoggedIn$: Observable<boolean> | undefined;       
 
   connectedUser: UtilisateurDto = {};
 
@@ -22,12 +21,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.connectedUser = this.userService.getConnectedUser();
-   // this.connectedUser;
+    this.isLoggedIn$ = this.userService.isLoggedIn;
   }
 
-}
+  onLogout(){
+    this.userService.logout();
+  }
 
-export function getConnectedUser(): UtilisateurDto {
-  throw new Error('Function not implemented.');
 }
 
