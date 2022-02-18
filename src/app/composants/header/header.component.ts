@@ -1,5 +1,4 @@
 import {Component, OnInit,} from '@angular/core';
-import {Router} from '@angular/router';
 
 import {Observable,} from 'rxjs';
 import {UserService} from 'src/app/services/user/user.service';
@@ -17,8 +16,7 @@ export class HeaderComponent implements OnInit {
   connectedUser: UtilisateurDto = {};
 
   constructor(
-    private userService: UserService,
-    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   onLogout(){
     this.userService.logout();
-    localStorage.removeItem('accessToken');
   }
 
 }

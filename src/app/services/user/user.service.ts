@@ -59,8 +59,9 @@ export class UserService {
   }
 
   isUserLoggedAndAccessTokenValid(): boolean {
+   // localStorage.removeItem('accessToken');
     if (localStorage.getItem('accessToken')) {
-      return true;
+        return true;
     }
     this.router.navigate(['login']);
     return false;
@@ -68,6 +69,7 @@ export class UserService {
 
   logout() {                          
     this.loggedIn.next(false);
+    localStorage.removeItem('accessToken');
     window.sessionStorage.clear();
     this.router.navigate(['/login']);
   }

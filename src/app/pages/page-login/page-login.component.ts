@@ -1,9 +1,7 @@
 import {Component, OnInit,} from '@angular/core';
 import {FormBuilder, FormGroup, Validators,} from '@angular/forms';
 import {Router} from '@angular/router';
-
 import {first} from 'rxjs/operators';
-
 import {AuthenticationRequest,} from '../../../gs-api/src/models/authentication-request';
 import {UserService} from '../../services/user/user.service';
 
@@ -42,7 +40,6 @@ export class PageLoginComponent implements OnInit {
 
 
   login() {
-    localStorage.removeItem('accessToken');
     this.authenticationRequest = {
       login: this.loginForm.get('email') ?.value,
       password: this.loginForm.get('password') ?.value,
